@@ -2,6 +2,9 @@
 
 A Flutter 新闻APP
 
+![](https://common-1253658043.cos.ap-shanghai.myqcloud.com/snapshoot1.png)
+![](https://common-1253658043.cos.ap-shanghai.myqcloud.com/snapshoot2.png)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

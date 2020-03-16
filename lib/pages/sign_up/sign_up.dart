@@ -125,7 +125,7 @@ class _SignUpPageState extends State<SignUpPage> {
       child: Column(
         children: [
           Text(
-            '或者用社交网络登录',
+            '或者用社交网络注册',
             textAlign: TextAlign.center,
             style: TextStyle(
               color: AppColors.primaryText,
