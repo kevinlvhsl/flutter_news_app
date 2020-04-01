@@ -1,3 +1,5 @@
+import 'package:flutter_news_app/common/api/apis.dart';
+import 'package:flutter_news_app/common/entity/user.dart';
 import 'package:flutter_news_app/common/utils/utils.dart';
 import 'package:flutter_news_app/common/values/values.dart';
 import 'package:flutter_news_app/common/widgets/widgets.dart';
@@ -13,15 +15,24 @@ class _SignInPageState extends State<SignInPage> {
   final TextEditingController _passwordController = TextEditingController();
 
   // 处理登录按钮
-  _handleSignIn() {
-    if (!ukIsEmail(_emailController.value.text)) {
+  _handleSignIn() async {
+    var _email = _emailController.value.text;
+    var _password = _passwordController.value.text;
+    if (!ukIsEmail(_email)) {
       toastInfo(msg: '请输入正确的邮箱');
       return;
     }
-    if (!ukCheckLength(_passwordController.value.text, 6)) {
+    if (!ukCheckLength(_password, 6)) {
       toastInfo(msg: '密码不能小于6位');
       return;
     }
+    UserLoginRequestEntity params = UserLoginRequestEntity(
+      email: _email,
+      password: ukSHA256(_password),
+    );
+
+    UserLoginResponseEntity user = await UserApi.login(params: params);
+    print(user);
   }
 
   // 处理注册按钮
