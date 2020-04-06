@@ -9,6 +9,7 @@ Widget inputTextEditor({
   String placeholder = '',
   double marginTop = 15,
   bool isPassword = false,
+  bool autofocus = false,
 }) {
   return Container(
     height: ukHeight(44),
@@ -18,6 +19,7 @@ Widget inputTextEditor({
       borderRadius: Radit.radius6px,
     ),
     child: TextField(
+      autofocus: autofocus,
       controller: controller,
       keyboardType: keyboardType,
       decoration: InputDecoration(

@@ -4,6 +4,7 @@ import 'package:flutter_news_app/common/utils/utils.dart';
 import 'package:flutter_news_app/common/values/values.dart';
 import 'package:flutter_news_app/common/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_news_app/global.dart';
 
 class SignInPage extends StatefulWidget {
   @override
@@ -31,8 +32,9 @@ class _SignInPageState extends State<SignInPage> {
       password: ukSHA256(_password),
     );
 
-    UserLoginResponseEntity user = await UserApi.login(params: params);
-    print(user);
+    UserLoginResponseEntity userResponse = await UserApi.login(params: params);
+    Global.saveProfile(userResponse);
+    Navigator.pushNamed(context, '/app');
   }
 
   // 处理注册按钮
@@ -128,6 +130,7 @@ class _SignInPageState extends State<SignInPage> {
           keyboardType: TextInputType.emailAddress,
           placeholder: '邮箱',
           marginTop: 0,
+          autofocus: true,
         ),
         inputTextEditor(
           controller: _passwordController,
