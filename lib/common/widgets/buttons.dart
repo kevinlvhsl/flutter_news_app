@@ -2,6 +2,7 @@ import 'package:flutter_news_app/common/utils/utils.dart';
 import 'package:flutter_news_app/common/values/values.dart';
 import 'package:flutter/material.dart';
 
+/// 扁平圆角按钮
 Widget flatButton({
   @required VoidCallback onPressed,
   double width = 140,

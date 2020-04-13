@@ -19,21 +19,21 @@ class _SignInPageState extends State<SignInPage> {
   _handleSignIn() async {
     var _email = _emailController.value.text;
     var _password = _passwordController.value.text;
-    if (!ukIsEmail(_email)) {
-      toastInfo(msg: '请输入正确的邮箱');
-      return;
-    }
-    if (!ukCheckLength(_password, 6)) {
-      toastInfo(msg: '密码不能小于6位');
-      return;
-    }
-    UserLoginRequestEntity params = UserLoginRequestEntity(
-      email: _email,
-      password: ukSHA256(_password),
-    );
+    // if (!ukIsEmail(_email)) {
+    //   toastInfo(msg: '请输入正确的邮箱');
+    //   return;
+    // }
+    // if (!ukCheckLength(_password, 6)) {
+    //   toastInfo(msg: '密码不能小于6位');
+    //   return;
+    // }
+    // UserLoginRequestEntity params = UserLoginRequestEntity(
+    //   email: _email,
+    //   password: ukSHA256(_password),
+    // );
 
-    UserLoginResponseEntity userResponse = await UserApi.login(params: params);
-    Global.saveProfile(userResponse);
+    // UserLoginResponseEntity userResponse = await UserApi.login(params: params);
+    // Global.saveProfile(userResponse);
     Navigator.pushNamed(context, '/app');
   }
 
